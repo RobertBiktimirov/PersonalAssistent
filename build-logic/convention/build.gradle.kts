@@ -46,6 +46,11 @@ gradlePlugin {
             id = "personalassistant.android.hilt"
             implementationClass = "AndroidHiltConventionPlugin"
         }
+
+        register("androidCompose") {
+            id = "personalassistant.android.compose"
+            implementationClass = "AndroidComposeConventionPlugin"
+        }
     }
 }
 

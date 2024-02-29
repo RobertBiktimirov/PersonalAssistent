@@ -57,4 +57,5 @@ ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 
 personalassistant-android-feature = { id = "personalassistant.android.feature", version = "unspecified" }
-
+personalassistant-android-libraty = { id = "personalassistant.android.library", version = "unspecified" }
+personalassistant-android-compose = { id = "personalassistant.android.compose", version = "unspecified" }
