@@ -13,6 +13,9 @@ class AndroidFeatureConventionPlugin : Plugin<Project> {
                 apply("personalassistant.android.compose")
             }
             dependencies {
+
+                add("implementation", project(":core:ui"))
+
                 add("implementation", libs.findLibrary("androidx.hilt.navigation.compose").get())
                 add("implementation", libs.findLibrary("androidx.lifecycle.runtimeCompose").get())
                 add("implementation", libs.findLibrary("androidx.lifecycle.viewModelCompose").get())

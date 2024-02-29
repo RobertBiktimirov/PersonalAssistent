@@ -1,4 +1,8 @@
 package dev.susu.personalassistant.ui
 
-class HomeScreenAction {
+import dev.susu.personalassistant.screenHelpers.Action
+
+sealed interface HomeScreenAction : Action {
+
+    data object TODO: HomeScreenAction
 }
