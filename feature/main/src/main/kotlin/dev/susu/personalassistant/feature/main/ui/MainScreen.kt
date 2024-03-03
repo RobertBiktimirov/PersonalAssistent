@@ -1,4 +1,4 @@
-package dev.susu.personalassistant.ui
+package dev.susu.personalassistant.feature.main.ui
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview

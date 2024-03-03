@@ -1,4 +1,4 @@
-package dev.susu.personalassistant.ui
+package dev.susu.personalassistant.feature.home.ui
 
 import dev.susu.personalassistant.screenHelpers.Action
 

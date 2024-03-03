@@ -1,4 +1,4 @@
-package dev.susu.personalassistant.ui
+package dev.susu.personalassistant.feature.main.ui
 
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
