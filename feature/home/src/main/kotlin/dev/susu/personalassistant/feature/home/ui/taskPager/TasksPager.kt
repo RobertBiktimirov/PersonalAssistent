@@ -1,6 +1,5 @@
 package dev.susu.personalassistant.feature.home.ui.taskPager
 
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Column
@@ -9,12 +8,11 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.DateRange
@@ -30,24 +28,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import dev.susu.personalassistant.feature.home.domain.FakeData
 import dev.susu.personalassistant.feature.home.domain.TaskItem
-import dev.susu.personalassistant.feature.home.domain.TaskProgress
 import dev.susu.personalassistant.theme.GreyTextColor
 import androidx.compose.ui.graphics.Color as ComposeColor
-
-@OptIn(ExperimentalFoundationApi::class)
-@Composable
-fun TasksPager(taskList: List<TaskItem>) {
-
-    val pagerState = rememberPagerState(pageCount = { 3 })
-    HorizontalPager(state = pagerState) { page ->
-        when (page) {
-            PagerItems.ALL.number -> TaskList(tasks = taskList)
-            PagerItems.COMPLETED.number -> TaskList(tasks = taskList.filter { it.type.progress == TaskProgress.COMPLETED })
-            PagerItems.IN_PROGRESS.number -> TaskList(tasks = taskList.filter { it.type.progress == TaskProgress.IN_PROGRESS })
-        }
-    }
-}
-
 
 @Composable
 fun TaskList(tasks: List<TaskItem>) {
@@ -64,6 +46,7 @@ fun TaskItem(task: TaskItem) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
+            .wrapContentSize(unbounded = false)
             .padding(end = 20.dp, start = 20.dp, bottom = 8.dp)
             .background(color = ComposeColor.White, shape = RoundedCornerShape(12.dp))
             .border(1.dp, Color(0xFFDCE1EF), RoundedCornerShape(12.dp))
@@ -129,6 +112,6 @@ fun TaskItem(task: TaskItem) {
 @Preview(showBackground = true)
 fun TaskParerPreview() {
     Surface(modifier = Modifier.fillMaxSize()) {
-        TasksPager(FakeData.homeScreenData.tasks)
+        TaskList(FakeData.homeScreenData.tasks)
     }
 }
