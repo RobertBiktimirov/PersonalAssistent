@@ -27,15 +27,15 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import dev.susu.personalassistant.feature.home.R
 import dev.susu.personalassistant.feature.home.domain.FakeData
-import dev.susu.personalassistant.feature.home.ui.taskPager.TaskItem
+import dev.susu.personalassistant.feature.home.ui.list.TaskItem
 import dev.susu.personalassistant.feature.home.ui.value.HomeScreenValue
+import dev.susu.personalassistant.home.R
 import dev.susu.personalassistant.theme.BackgroundGradient
 import dev.susu.personalassistant.theme.GreyTextColor
 
 @Composable
-fun HomeScreen(
+internal fun HomeScreen(
     viewModel: HomeViewModel
 ) {
     val state = viewModel.screenState.collectAsStateWithLifecycle()
@@ -48,7 +48,7 @@ fun HomeScreen(
 }
 
 @Composable
-fun HomeScreen(
+internal fun HomeScreen(
     homeScreenValue: HomeScreenValue
 ) {
     LazyColumn(
@@ -68,15 +68,19 @@ fun HomeScreen(
             TaskInfo()
             Spacer(modifier = Modifier.height(12.dp))
         }
-        items(homeScreenValue.tasks) {
-            TaskItem(task = it)
+        if (homeScreenValue.tasks.isNotEmpty()) {
+            items(homeScreenValue.tasks) {
+                TaskItem(task = it)
+            }
+        } else {
+            TODO("implementation layout 'not tasks'")
         }
     }
 
 }
 
 @Composable
-fun HomeToolbar(name: String, date: String) {
+internal fun HomeToolbar(name: String, date: String) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -104,7 +108,7 @@ fun HomeToolbar(name: String, date: String) {
 }
 
 @Composable
-fun SummaryContent() {
+internal fun SummaryContent() {
     Column(modifier = Modifier.padding(all = 20.dp)) {
         Text(text = "Summary", fontWeight = FontWeight.Medium, fontSize = 20.sp)
         Row(
@@ -133,7 +137,7 @@ fun SummaryContent() {
 
 
 @Composable
-fun CardSummaryItem(
+internal fun CardSummaryItem(
     modifier: Modifier,
     title: String,
     count: String
@@ -161,7 +165,7 @@ fun CardSummaryItem(
 }
 
 @Composable
-fun TaskInfo() {
+internal fun TaskInfo() {
 
     Column(modifier = Modifier.padding(horizontal = 20.dp)) {
 
@@ -178,7 +182,7 @@ fun TaskInfo() {
 
 @Composable
 @Preview(showBackground = true)
-fun HomeScreenSuccessPreview() {
+internal fun HomeScreenSuccessPreview() {
     Surface {
         HomeScreen(FakeData.homeScreenData)
     }

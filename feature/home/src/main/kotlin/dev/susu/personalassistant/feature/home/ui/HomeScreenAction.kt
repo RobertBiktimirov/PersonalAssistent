@@ -2,7 +2,7 @@ package dev.susu.personalassistant.feature.home.ui
 
 import dev.susu.personalassistant.screenHelpers.Action
 
-sealed interface HomeScreenAction : Action {
+internal sealed interface HomeScreenAction : Action {
 
-    data object TODO: HomeScreenAction
+    data class OnTaskDetails(val taskId: Int): HomeScreenAction
 }

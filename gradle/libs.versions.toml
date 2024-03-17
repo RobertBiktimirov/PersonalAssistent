@@ -16,6 +16,7 @@ hiltExt = "1.2.0"
 androidxHiltNavigationCompose = "1.2.0"
 androidxNavigation = "2.7.7"
 composePager = "0.20.0"
+navigationCommonKtx = "2.7.7"
 
 
 
@@ -45,11 +46,15 @@ hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", v
 hilt-ext-compiler = { group = "androidx.hilt", name = "hilt-compiler", version.ref = "hiltExt" }
 hilt-ext-work = { group = "androidx.hilt", name = "hilt-work", version.ref = "hiltExt" }
 androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "androidxNavigation" }
+androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
+androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
+androidx-room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
 
 android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "agp" }
 android-tools-common = { group = "com.android.tools", name = "common", version.ref = "androidTools" }
 ksp-gradlePlugin = { group = "com.google.devtools.ksp", name = "com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
 kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
+androidx-navigation-common-ktx = { group = "androidx.navigation", name = "navigation-common-ktx", version.ref = "navigationCommonKtx" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
@@ -61,3 +66,4 @@ hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 personalassistant-android-feature = { id = "personalassistant.android.feature", version = "unspecified" }
 personalassistant-android-libraty = { id = "personalassistant.android.library", version = "unspecified" }
 personalassistant-android-compose = { id = "personalassistant.android.compose", version = "unspecified" }
+personalassistant-android-hilt = { id = "personalassistant.android.hilt", version = "unspecified" }

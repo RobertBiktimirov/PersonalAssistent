@@ -1,4 +1,4 @@
-package dev.susu.personalassistant.feature.home.ui.taskPager
+package dev.susu.personalassistant.feature.home.ui.list
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -27,12 +27,12 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import dev.susu.personalassistant.feature.home.domain.FakeData
-import dev.susu.personalassistant.feature.home.domain.TaskItem
+import dev.susu.personalassistant.feature.home.domain.models.TaskItemModel
 import dev.susu.personalassistant.theme.GreyTextColor
 import androidx.compose.ui.graphics.Color as ComposeColor
 
 @Composable
-fun TaskList(tasks: List<TaskItem>) {
+internal fun TaskList(tasks: List<TaskItemModel>) {
     LazyColumn {
         items(tasks) {
             TaskItem(task = it)
@@ -41,7 +41,7 @@ fun TaskList(tasks: List<TaskItem>) {
 }
 
 @Composable
-fun TaskItem(task: TaskItem) {
+internal fun TaskItem(task: TaskItemModel) {
 
     Column(
         modifier = Modifier
@@ -110,7 +110,7 @@ fun TaskItem(task: TaskItem) {
 
 @Composable
 @Preview(showBackground = true)
-fun TaskParerPreview() {
+internal fun TaskParerPreview() {
     Surface(modifier = Modifier.fillMaxSize()) {
         TaskList(FakeData.homeScreenData.tasks)
     }

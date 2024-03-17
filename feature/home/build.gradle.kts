@@ -2,5 +2,5 @@ plugins {
     alias(libs.plugins.personalassistant.android.feature)
 }
 android {
-    namespace = "dev.susu.personalassistant.feature.home"
+    namespace = "dev.susu.personalassistant.home"
 }
