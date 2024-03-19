@@ -2,6 +2,7 @@ package dev.susu.personalassistant.feature.home.ui.list
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -32,16 +33,7 @@ import dev.susu.personalassistant.theme.GreyTextColor
 import androidx.compose.ui.graphics.Color as ComposeColor
 
 @Composable
-internal fun TaskList(tasks: List<TaskItemModel>) {
-    LazyColumn {
-        items(tasks) {
-            TaskItem(task = it)
-        }
-    }
-}
-
-@Composable
-internal fun TaskItem(task: TaskItemModel) {
+internal fun TaskItem(task: TaskItemModel, onClick: () -> Unit) {
 
     Column(
         modifier = Modifier
@@ -50,6 +42,7 @@ internal fun TaskItem(task: TaskItemModel) {
             .padding(end = 20.dp, start = 20.dp, bottom = 8.dp)
             .background(color = ComposeColor.White, shape = RoundedCornerShape(12.dp))
             .border(1.dp, Color(0xFFDCE1EF), RoundedCornerShape(12.dp))
+            .clickable(true, onClick = onClick)
     ) {
         Text(
             modifier = Modifier
@@ -104,14 +97,5 @@ internal fun TaskItem(task: TaskItemModel) {
                 fontSize = 12.sp,
             )
         }
-    }
-}
-
-
-@Composable
-@Preview(showBackground = true)
-internal fun TaskParerPreview() {
-    Surface(modifier = Modifier.fillMaxSize()) {
-        TaskList(FakeData.homeScreenData.tasks)
     }
 }

@@ -1,7 +1,7 @@
 package dev.susu.personalassistant.feature.home.data.repository
 
 import dev.susu.personalassistant.core.database.room.dao.TasksDao
-import dev.susu.personalassistant.core.database.sp.UserStorage
+import dev.susu.personalassistant.core.database.sp.user.UserStorage
 import dev.susu.personalassistant.feature.home.domain.models.TaskItemModel
 import dev.susu.personalassistant.feature.home.domain.repository.TaskRepository
 import kotlinx.coroutines.flow.Flow

@@ -5,6 +5,7 @@ import dev.susu.personalassistant.feature.home.domain.models.TaskItemModel
 import dev.susu.personalassistant.feature.home.domain.models.TaskProgress
 import dev.susu.personalassistant.feature.home.domain.models.TaskType
 import dev.susu.personalassistant.feature.home.ui.value.HomeScreenValue
+import kotlin.random.Random
 
 internal object FakeData {
 
@@ -18,7 +19,8 @@ internal object FakeData {
                 title = "Homepage Redesign",
                 description = "Redesign the homepage of our website to improve user engagement and align with our updated branding guidelines. Focus on creating an intuitive user interface with enhanced visual appeal.",
                 type = TaskType(Color.Green, TaskProgress.entries.random()),
-                deadline = "October 15, 2023"
+                deadline = "October 15, 2023",
+                Random.nextInt()
             )
 
             add(item)

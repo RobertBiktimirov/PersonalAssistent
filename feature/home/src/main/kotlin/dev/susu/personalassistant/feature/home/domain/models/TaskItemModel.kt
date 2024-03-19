@@ -7,6 +7,7 @@ data class TaskItemModel(
     val description: String,
     val type: TaskType,
     val deadline: String,
+    val id: Int,
 )
 
 data class TaskType(

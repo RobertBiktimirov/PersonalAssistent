@@ -2,6 +2,7 @@ package dev.susu.personalassistant.feature.home.ui
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -23,9 +24,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import dev.susu.personalassistant.feature.home.domain.FakeData
 import dev.susu.personalassistant.feature.home.ui.list.TaskItem
@@ -35,21 +38,21 @@ import dev.susu.personalassistant.theme.BackgroundGradient
 import dev.susu.personalassistant.theme.GreyTextColor
 
 @Composable
-internal fun HomeScreen(
-    viewModel: HomeViewModel
-) {
+fun HomeScreen() {
+    val viewModel: HomeViewModel = hiltViewModel()
     val state = viewModel.screenState.collectAsStateWithLifecycle()
 
-    when (state.value) {
+    when (val value = state.value) {
         HomeScreenState.Error -> TODO()
         HomeScreenState.Loading -> TODO()
-        is HomeScreenState.Success -> TODO()
+        is HomeScreenState.Success -> HomeScreen(value.data, viewModel)
     }
 }
 
 @Composable
 internal fun HomeScreen(
-    homeScreenValue: HomeScreenValue
+    homeScreenValue: HomeScreenValue,
+    viewModel: HomeViewModel
 ) {
     LazyColumn(
         modifier = Modifier
@@ -61,7 +64,7 @@ internal fun HomeScreen(
             HomeToolbar(homeScreenValue.userName, homeScreenValue.date)
         }
         item {
-            SummaryContent()
+            SummaryContent(homeScreenValue.assignedTasks, homeScreenValue.completedTasks)
         }
 
         item {
@@ -70,7 +73,9 @@ internal fun HomeScreen(
         }
         if (homeScreenValue.tasks.isNotEmpty()) {
             items(homeScreenValue.tasks) {
-                TaskItem(task = it)
+                TaskItem(task = it) {
+                    viewModel.onAction(HomeScreenAction.OnTaskDetails(it.id))
+                }
             }
         } else {
             TODO("implementation layout 'not tasks'")
@@ -108,7 +113,7 @@ internal fun HomeToolbar(name: String, date: String) {
 }
 
 @Composable
-internal fun SummaryContent() {
+internal fun SummaryContent(assignedTasks: String, completedTasks: String) {
     Column(modifier = Modifier.padding(all = 20.dp)) {
         Text(text = "Summary", fontWeight = FontWeight.Medium, fontSize = 20.sp)
         Row(
@@ -120,16 +125,16 @@ internal fun SummaryContent() {
                     .fillMaxWidth()
                     .weight(1f)
                     .padding(end = 8.dp),
-                title = "Assigned tasks",
-                count = "21"
+                title = "Назначено",
+                count = assignedTasks
             )
             CardSummaryItem(
                 Modifier
                     .fillMaxWidth()
                     .weight(1f)
                     .padding(horizontal = 8.dp),
-                title = "Completed tasks",
-                count = "31"
+                title = "Выполнено",
+                count = completedTasks
             )
         }
     }
@@ -153,7 +158,9 @@ internal fun CardSummaryItem(
             text = title,
             color = GreyTextColor,
             fontSize = 16.sp,
-            modifier = Modifier.padding(top = 12.dp, start = 12.dp, end = 12.dp)
+            modifier = Modifier
+                .padding(top = 12.dp, start = 12.dp, end = 12.dp),
+            textAlign = TextAlign.Center
         )
         Text(
             text = count,
@@ -166,9 +173,7 @@ internal fun CardSummaryItem(
 
 @Composable
 internal fun TaskInfo() {
-
     Column(modifier = Modifier.padding(horizontal = 20.dp)) {
-
         Text(
             modifier = Modifier.padding(top = 8.dp),
             text = "Tasks",
@@ -176,14 +181,5 @@ internal fun TaskInfo() {
             fontWeight = FontWeight.Medium
         )
 
-    }
-
-}
-
-@Composable
-@Preview(showBackground = true)
-internal fun HomeScreenSuccessPreview() {
-    Surface {
-        HomeScreen(FakeData.homeScreenData)
     }
 }

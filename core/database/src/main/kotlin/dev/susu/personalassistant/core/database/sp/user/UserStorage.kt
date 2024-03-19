@@ -1,4 +1,4 @@
-package dev.susu.personalassistant.core.database.sp
+package dev.susu.personalassistant.core.database.sp.user
 
 interface UserStorage {
 
