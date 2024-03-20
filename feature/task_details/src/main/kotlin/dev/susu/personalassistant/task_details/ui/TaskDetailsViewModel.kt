@@ -3,7 +3,7 @@ package dev.susu.personalassistant.task_details.ui
 import androidx.navigation.Navigator
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.susu.personalassistant.core.navigator.PerAssNavigator
-import dev.susu.personalassistant.viewmodel.PerAssViewModel
+import dev.susu.personalassistant.core.ui.viewmodel.PerAssViewModel
 import kotlinx.coroutines.flow.StateFlow
 import javax.inject.Inject
 

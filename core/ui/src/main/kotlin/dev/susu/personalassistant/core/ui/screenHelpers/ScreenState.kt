@@ -1,4 +1,4 @@
-package dev.susu.personalassistant.screenHelpers
+package dev.susu.personalassistant.core.ui.screenHelpers
 
 import androidx.compose.runtime.Stable
 

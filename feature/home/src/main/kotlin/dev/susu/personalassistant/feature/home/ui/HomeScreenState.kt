@@ -2,7 +2,7 @@ package dev.susu.personalassistant.feature.home.ui
 
 import androidx.compose.runtime.Stable
 import dev.susu.personalassistant.feature.home.ui.value.HomeScreenValue
-import dev.susu.personalassistant.screenHelpers.ScreenState
+import dev.susu.personalassistant.core.ui.screenHelpers.ScreenState
 
 @Stable
 internal sealed interface HomeScreenState : ScreenState {

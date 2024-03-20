@@ -1,8 +1,8 @@
-package dev.susu.personalassistant.viewmodel
+package dev.susu.personalassistant.core.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
-import dev.susu.personalassistant.screenHelpers.Action
-import dev.susu.personalassistant.screenHelpers.ScreenState
+import dev.susu.personalassistant.core.ui.screenHelpers.Action
+import dev.susu.personalassistant.core.ui.screenHelpers.ScreenState
 import kotlinx.coroutines.flow.StateFlow
 
 abstract class PerAssViewModel <state: ScreenState, action: Action>: ViewModel() {

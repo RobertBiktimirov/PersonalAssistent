@@ -1,4 +1,4 @@
-package dev.susu.personalassistant.theme
+package dev.susu.personalassistant.core.ui.theme
 
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
@@ -12,3 +12,4 @@ val BackgroundGradient =
     Brush.verticalGradient(colors = listOf(TopGradientColor, CenterGradientColor, BottomGradientColor))
 
 val GreyTextColor = Color(0xFF6E7591)
+val YellowColor = Color(0xFFFFC107)

@@ -27,7 +27,7 @@ import dev.susu.personalassistant.core.navigator.PerAssNavigator
 import dev.susu.personalassistant.core.navigator.PerAssNavigatorEvent
 import dev.susu.personalassistant.feature.home.ui.HomeScreen
 import dev.susu.personalassistant.navigation.addComposableDestinations
-import dev.susu.personalassistant.theme.BackgroundGradient
+import dev.susu.personalassistant.core.ui.theme.BackgroundGradient
 import dev.susu.personalassistant.ui.theme.PersonalAssistantTheme
 import javax.inject.Inject
 

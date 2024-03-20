@@ -5,7 +5,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.susu.personalassistant.core.details.TaskDetailsDestination
 import dev.susu.personalassistant.core.navigator.PerAssNavigator
 import dev.susu.personalassistant.feature.home.domain.FakeData
-import dev.susu.personalassistant.viewmodel.PerAssViewModel
+import dev.susu.personalassistant.core.ui.viewmodel.PerAssViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -32,7 +32,10 @@ internal class HomeViewModel @Inject constructor(
     override fun onAction(action: HomeScreenAction) {
         when (action) {
             is HomeScreenAction.OnTaskDetails -> {
-                navigator.navigate(TaskDetailsDestination.createTaskDetailsRoute(action.taskId))
+                navigator.navigate(
+                    if (action.taskId == null) TaskDetailsDestination.createTaskDetailsRoute()
+                    else TaskDetailsDestination.createTaskDetailsRoute(action.taskId)
+                )
             }
         }
     }

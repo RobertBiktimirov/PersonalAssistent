@@ -4,3 +4,6 @@ plugins {
 android {
     namespace = "dev.susu.personalassistant.home"
 }
+dependencies {
+    implementation(libs.androidx.animation.graphics.android)
+}

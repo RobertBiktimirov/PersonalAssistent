@@ -13,7 +13,7 @@ internal object FakeData {
     private const val USER_NAME: String = "Robert"
 
 
-    private val taskList: List<TaskItemModel> = buildList {
+    private val taskList: List<TaskItemModel> = buildList<TaskItemModel> {
         for (i in 0..5) {
             val item = TaskItemModel(
                 title = "Homepage Redesign",
