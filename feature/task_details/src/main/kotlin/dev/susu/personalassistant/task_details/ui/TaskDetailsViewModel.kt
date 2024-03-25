@@ -17,6 +17,8 @@ internal class TaskDetailsViewModel @Inject constructor(
     override fun onAction(action: TaskDetailsAction) {
         when (action) {
             TaskDetailsAction.ToBack -> navigator.popBackStack()
+            is TaskDetailsAction.SaveTask -> TODO()
+            is TaskDetailsAction.UpdateTask -> TODO()
         }
     }
 }

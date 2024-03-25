@@ -4,5 +4,15 @@ import androidx.compose.runtime.Stable
 import dev.susu.personalassistant.core.ui.screenHelpers.ScreenState
 
 @Stable
-interface TaskDetailsScreenState : ScreenState {
+internal sealed interface TaskDetailsScreenState : ScreenState {
+
+    data object Error : TaskDetailsScreenState
+    data object Loading : TaskDetailsScreenState
+    data class Success(val value: TaskDetailsValue? = null) : TaskDetailsScreenState
 }
+
+@Stable
+internal data class TaskDetailsValue(
+    val id: Int,
+    val description: String
+)
