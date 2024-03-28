@@ -11,6 +11,7 @@ import dev.susu.personalassistant.core.database.room.converters.TaskProgressConv
 data class TaskEntity(
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo("task_id") val id: Int,
+    @ColumnInfo("title") val title: String,
     @ColumnInfo("task_description") val description: String,
     @Embedded val type: TaskTypeEntity,
     @ColumnInfo("task_deadline") val deadline: String,

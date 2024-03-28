@@ -11,7 +11,7 @@ data class TaskItemModel(
 )
 
 data class TaskType(
-    val color: Color,
+    val color: String,
     val progress: TaskProgress
 )
 

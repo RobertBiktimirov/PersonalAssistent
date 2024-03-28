@@ -40,10 +40,13 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.os.bundleOf
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavOptionsBuilder
 import androidx.navigation.compose.rememberNavController
+import dev.susu.personalassistant.core.details.TaskDetailsDestination
 import dev.susu.personalassistant.core.navigator.PerAssNavigator
 import dev.susu.personalassistant.core.navigator.PerAssNavigatorEvent
 import dev.susu.personalassistant.core.ui.theme.LineBackground
@@ -196,7 +199,8 @@ internal fun TaskDetailScreenPreview() {
                 override val destinations: Flow<PerAssNavigatorEvent>
                     get() = TODO("Not yet implemented")
 
-            }
+            },
+            savedStateHandle = SavedStateHandle()
         )
     )
 

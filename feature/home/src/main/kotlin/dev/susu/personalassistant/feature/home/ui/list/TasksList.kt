@@ -38,6 +38,7 @@ import dev.susu.personalassistant.feature.home.domain.models.TaskItemModel
 import dev.susu.personalassistant.feature.home.domain.models.TaskProgress
 import dev.susu.personalassistant.feature.home.domain.models.TaskType
 import dev.susu.personalassistant.core.ui.theme.GreyTextColor
+import dev.susu.personalassistant.core.ui.theme.parseColor
 import androidx.compose.ui.graphics.Color as ComposeColor
 
 private const val TASK_ITEM_ACTION = "task action"
@@ -120,13 +121,12 @@ internal fun TaskItem(task: TaskItemModel, onClick: () -> Unit) {
                     modifier = Modifier
                         .padding(horizontal = 12.dp)
                         .background(
-                            color = task.type.color.copy(alpha = 0.09f),
+                            color = task.type.color.parseColor.copy(alpha = 0.09f),
                             shape = RoundedCornerShape(40.dp)
-                        )
-                        .padding(horizontal = 10.dp, vertical = 6.dp),
+                        ),
                     text = task.type.progress.value,
-                    color = task.type.color,
-                    fontSize = 12.sp,
+                    color = task.type.color.parseColor,
+                    fontSize = 12.sp
                 )
             }
         }
@@ -142,7 +142,7 @@ fun TaskItemPreview() {
             task = TaskItemModel(
                 title = "Test title with sample text",
                 description = "Test description with sample text and very long",
-                type = TaskType(Color.Green, TaskProgress.NEW_TASK),
+                type = TaskType("ffffff", TaskProgress.NEW_TASK),
                 deadline = "21.02.2022",
                 0
             )
