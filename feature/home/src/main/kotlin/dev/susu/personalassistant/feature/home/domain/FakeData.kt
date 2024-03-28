@@ -18,7 +18,7 @@ internal object FakeData {
             val item = TaskItemModel(
                 title = "Homepage Redesign",
                 description = "Redesign the homepage of our website to improve user engagement and align with our updated branding guidelines. Focus on creating an intuitive user interface with enhanced visual appeal.",
-                type = TaskType(Color.Green, TaskProgress.entries.random()),
+                type = TaskType("fff", TaskProgress.entries.random()),
                 deadline = "October 15, 2023",
                 Random.nextInt()
             )
@@ -32,5 +32,5 @@ internal object FakeData {
     private val completedTasks =
         taskList.filter { it.type.progress == TaskProgress.COMPLETED }.size.toString()
     val homeScreenData =
-        HomeScreenValue(Int.MAX_VALUE, USER_NAME, NOW_DATE, assignedTasks, completedTasks, taskList)
+        HomeScreenValue(USER_NAME, NOW_DATE, assignedTasks, completedTasks, taskList)
 }

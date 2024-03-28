@@ -1,7 +1,5 @@
 package dev.susu.personalassistant.feature.home.domain.models
 
-import androidx.compose.ui.graphics.Color
-
 data class TaskItemModel(
     val title: String,
     val description: String,

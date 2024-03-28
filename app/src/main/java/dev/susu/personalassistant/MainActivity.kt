@@ -1,16 +1,12 @@
 package dev.susu.personalassistant
 
-import android.os.Build
 import android.os.Bundle
-import android.view.WindowInsets
-import android.view.WindowInsetsController
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
@@ -27,7 +23,6 @@ import dev.susu.personalassistant.core.navigator.PerAssNavigator
 import dev.susu.personalassistant.core.navigator.PerAssNavigatorEvent
 import dev.susu.personalassistant.feature.home.ui.HomeScreen
 import dev.susu.personalassistant.navigation.addComposableDestinations
-import dev.susu.personalassistant.core.ui.theme.BackgroundGradient
 import dev.susu.personalassistant.ui.theme.PersonalAssistantTheme
 import javax.inject.Inject
 
@@ -65,7 +60,6 @@ fun PerAssScaffold(navigator: PerAssNavigator) {
             }
         }
     }
-
 
     Scaffold {
         Surface(modifier = Modifier.padding(it)) {

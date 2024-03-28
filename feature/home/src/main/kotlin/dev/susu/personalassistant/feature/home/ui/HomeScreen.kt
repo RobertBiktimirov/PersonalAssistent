@@ -41,6 +41,7 @@ import dev.susu.personalassistant.core.navigator.PerAssNavigatorEvent
 import dev.susu.personalassistant.core.ui.theme.BackgroundGradient
 import dev.susu.personalassistant.core.ui.theme.GreyTextColor
 import dev.susu.personalassistant.core.ui.theme.YellowColor
+import dev.susu.personalassistant.feature.home.data.repository.TaskRepositoryImpl
 import dev.susu.personalassistant.feature.home.ui.list.TaskItem
 import dev.susu.personalassistant.feature.home.ui.value.HomeScreenValue
 import dev.susu.personalassistant.home.R
@@ -54,8 +55,8 @@ fun HomeScreen() {
     val state = viewModel.screenState.collectAsStateWithLifecycle()
 
     when (val value = state.value) {
-        HomeScreenState.Error -> TODO()
-        HomeScreenState.Loading -> TODO()
+        HomeScreenState.Error -> {}
+        HomeScreenState.Loading -> {}
         is HomeScreenState.Success -> HomeScreen(value.data, viewModel)
     }
 }
@@ -210,36 +211,6 @@ internal fun NoTaskContent(modifier: Modifier, onClick: () -> Unit) {
 fun NoTaskContentPreview() {
     NoTaskContent(Modifier) {}
 }
-
-@Composable
-@Preview
-fun HomeSuccessPreview() {
-    Surface {
-        HomeScreen(
-            HomeScreenValue(0, "Robert", "21.03.2003", "0", "0", emptyList()),
-            HomeViewModel(object : PerAssNavigator {
-                override fun navigateUp(): Boolean {
-                    TODO("Not yet implemented")
-                }
-
-                override fun navigate(
-                    route: String,
-                    builder: NavOptionsBuilder.() -> Unit
-                ): Boolean {
-                    TODO("Not yet implemented")
-                }
-
-                override fun popBackStack(): Boolean {
-                    TODO("Not yet implemented")
-                }
-
-                override val destinations: Flow<PerAssNavigatorEvent>
-                    get() = TODO("Not yet implemented")
-            })
-        )
-    }
-}
-
 
 @Composable
 internal fun CardSummaryItem(

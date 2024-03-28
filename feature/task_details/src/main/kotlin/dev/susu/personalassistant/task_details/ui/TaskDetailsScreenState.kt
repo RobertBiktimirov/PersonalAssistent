@@ -14,5 +14,8 @@ internal sealed interface TaskDetailsScreenState : ScreenState {
 @Stable
 internal data class TaskDetailsValue(
     val id: Int,
-    val description: String
+    val description: String,
+    val term: String,
+    val reminder: String,
+    val importance: String
 )

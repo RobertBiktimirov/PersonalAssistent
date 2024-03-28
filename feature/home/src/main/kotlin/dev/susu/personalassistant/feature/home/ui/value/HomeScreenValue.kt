@@ -5,7 +5,6 @@ import dev.susu.personalassistant.feature.home.domain.models.TaskItemModel
 
 @Stable
 internal data class HomeScreenValue(
-    val id: Int,
     var userName: String,
     var date: String,
     var assignedTasks: String,
